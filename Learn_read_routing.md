@@ -33,3 +33,65 @@ before we were rendering applayout directly
 root.render(<AppLayout />);
 now we need to provide this to Routerprovider 
 root.render(<Routerprovide router={appRoute} />);
+
+~~~~~~~~~~~ Creating child routuer ~~~~~~~~~~~
+example if i naviaget to about page . i should still see header componet , and should be see about us page under header .
+currently we show header and body in a smae way when we change path header should reatin only body should be changed 
+
+so in <AppLayout>
+
+
+
+const AppLayout = () => {
+    return (
+        <div className="app">   
+            <Header />
+            // if path / than load 
+            <BodyWithApiCall />
+            // if path is /about than load
+            <About/>
+        </div>
+    );
+}
+
+add all the routes as childer for app laouyt , now we need to load header and path specifi compoenet 
+const appRouter = createBrowserRouter([
+    {  
+        path:'/',
+        element:<AppLayout />, 
+        children:[{path:'/',
+        element:<BodyWithApiCall/>},{
+    path:'/about',
+    element:<About/>
+},
+{
+    path:'/contact',
+    element:<Contact/>
+},],
+        errorElement:<Error/>
+
+    },
+
+])
+so no we need to fill in the comppoenet based on the path match , for this we can use function called Outlet Provide by react-dom 
+Outlet will check the path and based on the path it will load the childern 
+Check file RestaurantsAppApi.js
+
+~~~~~ No we need to link the About us to open the page 
+for this in header componet 
+<li><a href ='/about'>About </li>
+In react when we are routing dont use <a> anchor tag to do the routing 
+if we do this that means page is re loading , 
+
+we should not use this as it loads eniter page , we will use Link compoent from recat-dom 
+Link will replace respective compoent not realoding eniert dom 
+
+if we go to new route its changing the compoent not loading new page ===> hence react is called single page application , we dont need change the page it reloads the compoent as required.
+
+# Routing in web apps ########
+Clinet side routing  and server side routing
+
+-- Server side routing -> we click on about us reloads eniter page sends ntweork call fetch the data and loads the data on to page 
+
+-- Client side routing -> in our application when we clik on about us we are loading teh already exiting compoenet not fetch any data from netwrok .
+

@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
 import { AppLogo_url } from "../utils/constant.js";
 import { useState } from "react";
+import {Link} from "react-router-dom";
  
  export const Header = () => {
     const [btnName, setBtnName] = useState("Login"); //for login button toggle
@@ -10,9 +12,11 @@ import { useState } from "react";
                 </div>
             <div className="nav-items">    
                 <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Contact</li>
+                    <li><Link to ='/'>Home</Link></li>
+                    {/* dont use <a> anchor tag since it does entier page re load  
+                    <li><a href="/about"/>About Us</li>*/}
+                    <li><Link to = '/about'>About Us</Link></li>
+                    <li><Link to = '/contact'>Contact Us</Link></li>
                     <li>Cart</li>
                     <button className="login" 
                     onClick={()=>{btnName==="Login"? setBtnName("Logout"):setBtnName("Login")}}>{btnName}</button>

@@ -1,4 +1,5 @@
 const About = () => {
+    console.log("About Us");
     return (
         <div>
             <h1>About Us Page</h1>

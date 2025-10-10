@@ -17,9 +17,11 @@
 import ReactDOM from "react-dom/client";
 import Header  from "./components/Header";
 import BodyWithApiCall from "./components/BodyWithApiCall";
-import { createBrowserRouter, RouterProvide } from "react-router";
-import {About} from "./components/About";
-import {Contact} from "./components/Contact";
+
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Error from "./Error";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 
 
@@ -27,7 +29,7 @@ const AppLayout = () => {
     return (
         <div className="app">   
             <Header />
-            <BodyWithApiCall />
+            <Outlet />
         </div>
     );
 }
@@ -35,16 +37,22 @@ const AppLayout = () => {
 const appRouter = createBrowserRouter([
     {  
         path:'/',
-        element:<AppLayout /> 
-    },
-{
+        element:<AppLayout />, 
+        children:[{path:'/',
+    element:<BodyWithApiCall/>
+},
+            {
     path:'/about',
     element:<About/>
 },
 {
     path:'/contact',
     element:<Contact/>
-},
+},],
+        errorElement:<Error/>
+
+    },
+
 
 ])
 
@@ -56,4 +64,4 @@ For routing we need to replace above line with below line
 1. create a browser router using createBrowserRouter
 2. wrap the appLayout with RouterProvider and pass the created router as props
 */
-root.render(<RouterProvide router={appRouter} />);
+ root.render(<RouterProvider router={appRouter} />);
