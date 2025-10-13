@@ -95,3 +95,5 @@ Clinet side routing  and server side routing
 
 -- Client side routing -> in our application when we clik on about us we are loading teh already exiting compoenet not fetch any data from netwrok .
 
+
+# Dynamic routing 

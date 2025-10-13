@@ -21,6 +21,7 @@ import BodyWithApiCall from "./components/BodyWithApiCall";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./Error";
+import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 
@@ -38,19 +39,26 @@ const appRouter = createBrowserRouter([
     {  
         path:'/',
         element:<AppLayout />, 
-        children:[{path:'/',
-    element:<BodyWithApiCall/>
-},
+        children:[
             {
-    path:'/about',
-    element:<About/>
-},
-{
-    path:'/contact',
-    element:<Contact/>
-},],
+                path:'/',
+                element:<BodyWithApiCall/>
+            },
+            {
+                path:'/about',
+                element:<About/>
+            },
+            {
+                path:'/contact',
+                element:<Contact/>
+            },
+            {
+                //dynamic routing
+                path:'/restaurant/:resId',
+                element:<RestaurantMenu/>
+            },
+        ],
         errorElement:<Error/>
-
     },
 
 
