@@ -24,7 +24,7 @@ const RestLogoStyle = {
 };
 
 
-const RestaurantCard = ({resdata}) => {
+const RestaurantCard = ({resdata,renderName}) => {
     // destructuring cuisines array to display as comma separated values
     const {name,cloudinaryImageId,cuisines,avgRating,sla} = resdata?.info; 
     
@@ -32,7 +32,7 @@ const RestaurantCard = ({resdata}) => {
     return (
         <div className="restaurant-card">   
             <img className="restaurant-logo" style={RestLogoStyle} alt="restaurant-logo" src={ResLogo_url+cloudinaryImageId}/>
-            <h3>{name}</h3>
+            <h3>{renderName ? renderName : name}</h3>
             <h4>{cuisines.join(', ')}</h4>     
             <h4>{avgRating} stars</h4>
             <h4>{sla?.slaString}</h4>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
-import { resObj } from "../utils/mockData";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
     // We are learning how to update the list of restaurants on button click
@@ -63,7 +63,7 @@ const fetchData = async () => {
     // using ? to check if the object is present or not to avoid undefined error
     //  optional chaining 
     const apiData= (json?.data?.cards[4]?.card.card?.gridElements?.infoWithStyle?.restaurants);
-
+console.log(apiData);
     setListOfResturants(apiData)
     // we will use this to maintain the original list of resturants so filter will happen only on this data
     // why we ened to add api value []  for filterRes?  , beacuse we are using this to dispaly in UI if we dont give defult value it will show emapty as set in useState when we load first time 
@@ -111,11 +111,16 @@ if (listOfResturants.length === 0) {
 
             <div className="restaurant-list" style={{ display: "flex", flexWrap: "wrap" }}>
                 {filterRes.map((restaurant) => (
-                    <RestaurantCard
-                        key={restaurant.info.id}
-                        resdata={restaurant}
-                    />
-                ))}
+    <RestaurantCard
+      key={restaurant.info.id}
+      resdata={restaurant}
+      renderName={
+        <Link to={`/restaurant/${restaurant.info.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+          {restaurant.info.name}
+        </Link>
+      }
+    />
+  ))}
             </div>
         </div>
     );

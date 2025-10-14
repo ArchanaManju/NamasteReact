@@ -1,0 +1,83 @@
+ [
+  {
+    "id": "303248",
+    "restaurantName": "Theobroma",
+    "menu": [
+      { "itemId": 1, "name": "Theobroma Sample Dish 1", "price": 120 },
+      { "itemId": 2, "name": "Theobroma Sample Dish 2", "price": 150 },
+      { "itemId": 3, "name": "Theobroma Sample Dish 3", "price": 90 }
+    ]
+  },
+    {
+    "id": "405798",
+    "restaurantName": "Chinese Wok",
+    "menu": [
+      { "itemId": 1, "name": "Chinese Sample Dish 1", "price": 120 },
+      { "itemId": 2, "name": "Chinese Sample Dish 2", "price": 150 },
+      { "itemId": 3, "name": "Chinese Sample Dish 3", "price": 90 }
+    ]
+  },
+  {
+    "id": "12811",
+    "restaurantName": "A2B - Adyar Ananda Bhavan",
+    "menu": [
+      { "itemId": 1, "name": "A2B Sample Dish 1", "price": 120 },
+      { "itemId": 2, "name": "A2B Sample Dish 2", "price": 150 },
+      { "itemId": 3, "name": "A2B Sample Dish 3", "price": 90 }
+    ]
+  },
+  {
+    "id": "10591",
+    "restaurantName": "Pizza Hut",
+    "menu": [
+      { "itemId": 1, "name": "Pizza Hut Sample Dish 1", "price": 120 },
+      { "itemId": 2, "name": "Pizza Hut Sample Dish 2", "price": 150 },
+      { "itemId": 3, "name": "Pizza Hut Sample Dish 3", "price": 90 }
+    ]
+  },
+  {
+    "id": "25282",
+    "restaurantName": "Baskin Robbins - Ice Cream Desserts",
+    "menu": [
+      { "itemId": 1, "name": "Baskin Robbins Sample Dish 1", "price": 120 },
+      { "itemId": 2, "name": "Baskin Robbins Sample Dish 2", "price": 150 },
+      { "itemId": 3, "name": "Baskin Robbins Sample Dish 3", "price": 90 }
+    ]
+  },
+  {
+    "id": "5932",
+    "restaurantName": "Burger King",
+    "menu": [
+      { "itemId": 1, "name": "Burger King Sample Dish 1", "price": 120 },
+      { "itemId": 2, "name": "Burger King Sample Dish 2", "price": 150 },
+      { "itemId": 3, "name": "Burger King Sample Dish 3", "price": 90 }
+    ]
+  },
+  {
+    "id": "304684",
+    "restaurantName": "Homely",
+    "menu": [
+      { "itemId": 1, "name": "Homely Sample Dish 1", "price": 120 },
+      { "itemId": 2, "name": "Homely Sample Dish 2", "price": 150 },
+      { "itemId": 3, "name": "Homely Sample Dish 3", "price": 90 }
+    ]
+  },
+  {
+    "id": "770772",
+    "restaurantName": "Olio - The Wood Fired Pizzeria",
+    "menu": [
+      { "itemId": 1, "name": "Olio Sample Dish 1", "price": 120 },
+      { "itemId": 2, "name": "Olio Sample Dish 2", "price": 150 },
+      { "itemId": 3, "name": "Olio Sample Dish 3", "price": 90 }
+    ]
+  },
+  {
+    "id": "347868",
+    "restaurantName": "KFC",
+    "menu": [
+      { "itemId": 1, "name": "KFC Sample Dish 1", "price": 120 },
+      { "itemId": 2, "name": "KFC Sample Dish 2", "price": 150 },
+      { "itemId": 3, "name": "KFC Sample Dish 3", "price": 90 }
+    ]
+  }
+]

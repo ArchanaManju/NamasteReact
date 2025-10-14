@@ -1,46 +1,46 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, } from "react";
+import { useParams } from "react-router-dom";
+
 
 const RestaurantMenu = () => {
-
-  // dynamically load the menu of restaurant using the resId from the url
-  // how to read a dynamic url params in react
-  // useParams is a hook which will return the params object
-  // we can extact the resId from the params object
-  // const {resId} = useParams();
-  // console.log(resId);
-useEffect(()=>{
-    fetchMenu()
-    console.log("API call to fetch menu data");
-},[]);
-const fetchMenu = async() =>{
-  const data = await fetch('http://localhost:5000/api/menu');
-    //const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9966135&lng=77.5920581&restaurantId=696232&catalog_qa=undefined&submitAction=ENTER");
-    if(!data.ok){
-      console.log("something went wrong");
-    }
-    const text = await data.text();
-    if(!text){
-      console.log("No data found");
-    }
-    try {
-      const json = JSON.parse(text);
-      console.log("Menu data:", json);
-    }
-    catch (error) {
-      console.log("Error parsing JSON:", error);
-    }
+  const [restaurant, setRestaurant] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const { resId } = useParams();
 
 
-}
-  return <div className ="Menu">
-    <h1>Restaurant Menu Component</h1>
-    <h2>Menu</h2>
-    <ul>
-        <li>Biryani</li>
-        <li>Burgers</li>
-        <li>Diet coke</li>
-    </ul>    
-    </div>;
-}
+  useEffect(() => {
+    // Fetch ALL restaurant menu data
+    fetch('/api/menu')
+      .then(response => response.json())
+      .then(data => {
+        // Find the restaurant by ID
+        const found = data.find(r => r.id === resId);
+        setRestaurant(found);
+        setLoading(false);
+      })
+      .catch(() => {
+        setRestaurant(null);
+        setLoading(false);
+      });
+  }, [resId]);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+
+  return (
+    <div className="menu">
+      <h2>{restaurant.restaurantName}</h2>
+       <h2>Menu</h2>
+      <ul>
+        {restaurant.menu.map(item => (
+          <li key={item.itemId}>
+            {item.name} - ₹{item.price}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
 export default RestaurantMenu;
