@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from '../utils/hooks/useOnlineStatus'
 
 const Body = () => {
     // We are learning how to update the list of restaurants on button click
@@ -69,6 +70,16 @@ console.log(apiData);
     // why we ened to add api value []  for filterRes?  , beacuse we are using this to dispaly in UI if we dont give defult value it will show emapty as set in useState when we load first time 
     setfilterRes(apiData)
      setLoading(false);
+}
+
+
+// use this for custom hook for fetch 
+// const {listOfResturants,filterRes,loading} = useResturantList()
+
+const onlineStatus = useOnlineStatus()
+
+if (onlineStatus === false ){
+    return <h1>Looks like your internet is down!! Please come back owhen netwrok is back </h1>
 }
 
 if (loading) {

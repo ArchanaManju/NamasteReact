@@ -2,7 +2,7 @@ import { useEffect, useState }  from "react"
 
 const useResturantMenu =(resId)=>{
   const [restaurant, setRestaurant] = useState([]);
-console.log({resId})
+
     // fetch data 
     useEffect(()=>{
             fetch('/api/menu')
@@ -18,7 +18,6 @@ console.log({resId})
       
       });
     },[])
-console.log("here",restaurant)
  
     return restaurant
 
