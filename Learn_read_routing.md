@@ -97,3 +97,6 @@ Clinet side routing  and server side routing
 
 
 # Dynamic routing 
+we could not get swiggy menu card api working because of proxy issue 
+so i have used parecle proxy severe created own api end point and passed mocked data from menu.js file 
+to start the servere first start the parcel npx parcel index.html and then start server  node server.js

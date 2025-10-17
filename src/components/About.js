@@ -1,3 +1,5 @@
+import UserClass from "./UserClass";
+
 const About = () => {
     console.log("About Us");
     return (
@@ -5,6 +7,7 @@ const About = () => {
             <h1>About Us Page</h1>
             <p>This is Namaste React Live Course</p>
             <p>This is demo for react routing</p>
+            <UserClass name={"Archana (Class)"} location={"Cambrdige"}/>
         </div>
     );
 }   

@@ -84,3 +84,12 @@
     cursor: pointer;
     border-color: antiquewhite;
 }
+.user-card{
+    border: 1px solid black;
+    width:350px;
+ 
+    padding: 5px;
+    border-radius: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: small;
+}
